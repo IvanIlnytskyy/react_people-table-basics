@@ -2,23 +2,16 @@ import { Link } from 'react-router-dom';
 import { Person } from '../types/Person';
 
 interface PersonLinkProps {
-  name: string;
-  people: Person[];
+  person: Person;
 }
 
-const PersonLink: React.FC<PersonLinkProps> = ({ name, people }) => {
-  const foundPerson = people.find(p => p.name === name);
-
-  if (!foundPerson) {
-    return <span>{name}</span>;
-  }
-
+const PersonLink: React.FC<PersonLinkProps> = ({ person }) => {
   return (
     <Link
-      to={`/people/${foundPerson.slug}`}
-      className={foundPerson.sex === 'f' ? 'has-text-danger' : ''}
+      to={`/people/${person.slug}`}
+      className={person.sex === 'f' ? 'has-text-danger' : ''}
     >
-      {name}
+      {person.name}
     </Link>
   );
 };

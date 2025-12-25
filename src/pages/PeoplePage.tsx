@@ -35,10 +35,6 @@ const PeoplePage: React.FC<PeoplePageProps> = ({
       .finally(() => setLoading(false));
   }, [slug, setSelectedPerson]);
 
-  useEffect(() => {
-    setSelectedPerson(people.find(p => p.slug === slug) || null);
-  }, [slug, people, setSelectedPerson]);
-
   if (loading) {
     return <Loader />;
   }

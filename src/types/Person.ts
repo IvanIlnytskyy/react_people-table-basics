@@ -1,5 +1,4 @@
 export interface Person {
-  gender: string;
   name: string;
   sex: string;
   born: number;

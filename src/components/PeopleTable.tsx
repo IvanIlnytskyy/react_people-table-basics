@@ -46,26 +46,32 @@ const PeopleTable: React.FC<PeopleTableProps> = ({
                   setSelectedPerson(person);
                 }}
               >
-                <td
-                  className={person.sex === 'female' ? 'has-text-danger' : ''}
-                >
-                  <PersonLink name={person.name} people={people} />
+                <td>
+                  <PersonLink person={person} />
                 </td>
                 <td>{person.sex}</td>
                 <td>{person.born}</td>
                 <td>{person.died}</td>
                 <td>
-                  {mother ? (
-                    <PersonLink name={mother.name} people={people} />
+                  {person.motherName ? (
+                    mother ? (
+                      <PersonLink person={mother} />
+                    ) : (
+                      person.motherName
+                    )
                   ) : (
-                    person.motherName || '-'
+                    '-'
                   )}
                 </td>
                 <td>
-                  {father ? (
-                    <PersonLink name={father.name} people={people} />
+                  {person.fatherName ? (
+                    father ? (
+                      <PersonLink person={father} />
+                    ) : (
+                      person.fatherName
+                    )
                   ) : (
-                    person.fatherName || '-'
+                    '-'
                   )}
                 </td>
               </tr>
